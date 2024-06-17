@@ -195,6 +195,8 @@ def handler_text(message):
         if os.path.isdir("./personality/"+str(text[1])):
             for file in os.listdir("./personality/"+str(text[1])):
                 bot.send_message(message.from_user.id, file)
+                file = open("./personality/"+str(text[1])+'/'+file, 'rb')
+                bot.send_photo(message.from_user.id, file)
         else:
             bot.send_message(message.from_user.id, "Не найдено")
        
